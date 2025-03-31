@@ -35,7 +35,7 @@ fn App() -> Element {
     UserService::init();
 
     let conf = config::get();
-    let css = include_str!("../public/input.css");
+    let css = include_str!("../public/theme.css");
 
     rsx! {
         FirebaseProvider {
@@ -62,8 +62,8 @@ fn App() -> Element {
         // }
 
         // document::Script { src: "https://cdn.quilljs.com/1.3.6/quill.min.js" }
-        document::Style { r#type: "text/tailwindcss", {css} }
         document::Script { src: "https://d3js.org/d3.v7.min.js" }
+        document::Style { r#type: "text/tailwindcss", {css} }
         document::Script { src: "https://unpkg.com/@tailwindcss/browser@4.0.12/dist/index.global.js" }
         Router::<Route> {}
     }

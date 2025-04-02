@@ -138,8 +138,8 @@ impl LoginService {
         self.email.set(Some(email));
         // self.token.set(token);
 
-        #[cfg(feature = "web")]
-        self.set_cookie(token.as_str());
+        // #[cfg(feature = "web")]
+        // self.set_cookie(token.as_str());
     }
 }
 

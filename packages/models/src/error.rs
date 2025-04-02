@@ -209,6 +209,12 @@ impl From<reqwest::Error> for ApiError {
     }
 }
 
+impl From<gloo_net::Error> for ApiError {
+    fn from(e: gloo_net::Error) -> Self {
+        ApiError::ApiCallError(e.to_string())
+    }
+}
+
 impl From<validator::ValidationErrors> for ApiError {
     fn from(e: validator::ValidationErrors) -> Self {
         ApiError::ValidationError(e.to_string())

@@ -102,6 +102,12 @@ async fn make_app() -> Result<Router> {
             "/v1/users",
             controllers::v1::users::UserController::route(pool.clone())?,
         )
+        // TODO: redirect /api routes to /api/v1
+        .nest(
+            "/api/v1/users",
+            controllers::v1::users::UserController::route(pool.clone())?,
+        )
+        .nest("/api/v2", Version2Controller::route(pool.clone())?)
         // NOTE: Deprecated
         .nest(
             "/organizations/v2",

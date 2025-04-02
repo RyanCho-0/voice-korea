@@ -24,13 +24,14 @@ pub fn RootLayout(lang: Language) -> Element {
     let tr: RootLayoutTranslate = translate(&lang);
     let user: LoginService = use_context();
     let is_logged_in = use_signal(|| (user.email)().clone().is_some());
-    let nav = use_navigator();
+
+    // let nav = use_navigator();
 
     use_effect(move || {
         if !is_logged_in() {
             tracing::info!("redirect to login page");
-
-            nav.replace(Route::LoginPage { lang });
+            // NOTE: committing code for test
+            // nav.replace(Route::LoginPage { lang });
         }
     });
 

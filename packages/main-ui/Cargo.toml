@@ -40,6 +40,6 @@ uuid = { version = "1", features = ["v4"] }
 
 [features]
 default = []
-web = ["bdk/web"]
-server = ["bdk/server"]
+web = ["bdk/web", "rest-api/web"]
+server = ["bdk/server", "rest-api/default"]
 lambda = ["server", "bdk/lambda"]

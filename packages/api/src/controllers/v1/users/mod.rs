@@ -195,7 +195,7 @@ impl UserController {
 
         Ok(JsonWithHeaders::new(user)
             .with_bearer_token(&jwt)
-            .with_cookie(&jwt))
+            .with_secure_cookie(&jwt))
     }
 
     pub async fn login(&self, body: UserLoginRequest) -> Result<JsonWithHeaders<User>> {
@@ -215,7 +215,7 @@ impl UserController {
 
         Ok(JsonWithHeaders::new(user)
             .with_bearer_token(&jwt)
-            .with_cookie(&jwt))
+            .with_secure_cookie(&jwt))
     }
 
     pub async fn reset(
@@ -260,7 +260,7 @@ impl UserController {
 
         Ok(JsonWithHeaders::new(user)
             .with_bearer_token(&jwt)
-            .with_cookie(&jwt))
+            .with_secure_cookie(&jwt))
     }
 
     pub async fn user_login(
@@ -281,7 +281,7 @@ impl UserController {
 
         Ok(JsonWithHeaders::new(user)
             .with_bearer_token(&jwt)
-            .with_cookie(&jwt))
+            .with_secure_cookie(&jwt))
     }
 
     pub async fn user_signup(
@@ -342,7 +342,7 @@ impl UserController {
 
         Ok(JsonWithHeaders::new(user)
             .with_bearer_token(&jwt)
-            .with_cookie(&jwt))
+            .with_secure_cookie(&jwt))
     }
 
     async fn invite_user(&self, user: User) -> Result<()> {
